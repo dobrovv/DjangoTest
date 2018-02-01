@@ -25,7 +25,7 @@ SECRET_KEY = '_sa)78hqbabdmpi--oqi2a4+!reda_!5fetphl-vzhqb*@ihp^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dobrovv.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost','dobrovv.pythonanywhere.com']
 
 
 # Application definition
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'DjangoTest.urls'
+ROOT_URLCONF = 'stack_overfull.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DjangoTest.wsgi.application'
+WSGI_APPLICATION = 'stack_overfull.wsgi.application'
 
 
 # Database
