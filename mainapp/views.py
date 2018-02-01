@@ -40,11 +40,6 @@ class ListQuestionAnswers(generics.ListCreateAPIView):
         print (request.data)
         super().initial(request, *args, **kwargs)
 
-    #def perform_create(self, serializer):
-        #pass
-        #question_id = self.kwargs.get('pk')
-        #serializer.save(question_id=question_id)
-
     def get_queryset(self):
         question_id = self.kwargs.get('pk')
         return models.Answer.objects.filter(question_id=question_id)
