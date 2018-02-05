@@ -24,6 +24,7 @@ class UserView(TemplateView):
         users_vals =  models.User.objects.all().values(
             'id', 'username', 'date_joined', 'is_active'
         )
+        
         return JsonResponse(list(users_vals), safe=False)
 
 # Return the currently logged in user
