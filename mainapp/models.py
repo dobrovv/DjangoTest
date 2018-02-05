@@ -1,28 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Question(models.Model):
-    #accepted_answer_id = models.ForeignKey()
-    #owner_id = models.ForeignKey()
-    title = models.TextField()
-    body = models.TextField()
-    creation_date = models.DateTimeField(auto_now_add=True)
-    votes = models.IntegerField(default=0)
-    #answers
-    #is_answered = BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
-
-class Answer(models.Model):
-    #owner_id = models.ForeginKey()
-    question_id = models.ForeignKey(
-        'Question',
-        on_delete = models.CASCADE
-    )
-    body = models.TextField()
-    creation_date = models.DateTimeField(auto_now_add=True)
-    votes = models.IntegerField(default=0)
-
-    #is_accepted = BooleanField(default=False)
+#https://stackoverflow.com/questions/44109/extending-the-user-model-with-custom-fields-in-django
+#https://docs.djangoproject.com/en/2.0/topics/db/examples/one_to_one/
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)

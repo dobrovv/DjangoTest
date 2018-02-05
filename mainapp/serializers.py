@@ -1,25 +1,16 @@
 from rest_framework import serializers
 from . import models
 
-class QuestionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Question
-        fields = (
-            'id',
-            'title',
-            'body',
-            'creation_date',
-            'votes',
-        )
+from django.contrib.auth.validators import UnicodeUsernameValidator
 
-
-class AnswerSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Answer
+        model = models.User
         fields = (
-            'id',
-            'question_id',
-            'body',
-            'creation_date',
-            'votes',
+            'id', 'username', 'password'
         )
+        extra_kwargs = {
+            'username': {
+                #'validators': [UnicodeUsernameValidator()],
+            }
+        }
